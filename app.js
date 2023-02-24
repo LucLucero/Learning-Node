@@ -1,20 +1,12 @@
-app.get('/', function (req,res) {
-    
-    res.render('home/index');
+var app = require('./config/server');
+var homeRota = require('./app/routes/home');
+homeRota(app);
 
-});
-app.get('/formulario_inclusao_noticia', function (req,res) {
-    
-    res.render('admin/form_add_noticia');
+var noticiasRota = require('./app/routes/noticias');
+noticiasRota(app);
 
-});
-app.get('/noticias', function (req,res) {
-    
-    res.render('noticias/noticias');
-
-});
-
-
+var formRota = require('./app/routes/formulario_inclusao_noticia');
+formRota(app);
 
 
 app.listen(3000, function(){
